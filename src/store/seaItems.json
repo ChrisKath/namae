@@ -1,0 +1,79 @@
+[{
+  "id": "3xc8bIeM6veyNfOaO4Oq",
+  "name": "[Guild] Goldmont Pirate Golden Coin",
+  "picture": "00055054.png?alt=media&token=920ce4da-d0f3-4b69-9796-db82ee0a6a73",
+  "price": 100000,
+  "rare": false
+}, {
+  "id": "L8NskcOgFQJJkRHZDw3y",
+  "name": "[Guild] Hekaru's Spike",
+  "picture": "00009978.png?alt=media&token=64f7ba94-87b0-4fe8-94ca-a3ddac63e491",
+  "price": 82000,
+  "rare": false
+}, {
+  "id": "OppPsyi6oycKE6dFSjWc",
+  "name": "[Guild] Candidum Shell",
+  "picture": "00009977.png?alt=media&token=692729ed-7521-42b9-bb0e-734ff67fc8b5",
+  "price": 409200,
+  "rare": false
+}, {
+  "id": "RQX7hmKVuosEa21BRU6X",
+  "name": "[Guild] Steel Candidum Shell",
+  "picture": "00055047.png?alt=media&token=d5318cf5-9fc7-4b92-bd88-9403db5bccf0",
+  "price": 100000000,
+  "rare": true
+}, {
+  "id": "Vold9wNMCBxpqhK65BKT",
+  "name": "[Guild] Nineshark's Horn Fragment",
+  "picture": "00009980.png?alt=media&token=fb3908eb-8513-4064-bdfc-b188c59a2f76",
+  "price": 53700,
+  "rare": false
+}, {
+  "id": "fCSsQFUeGpcuSbkhm7pG",
+  "name": "[Guild] Goldmont Pirate Golden Goblet",
+  "picture": "00055047.png?alt=media&token=d5318cf5-9fc7-4b92-bd88-9403db5bccf0",
+  "price": 100000000,
+  "rare": true
+}, {
+  "id": "grjGlbmk9NFH3xXhjTZr",
+  "name": "[Guild] Amethyst Hekaru Spike",
+  "picture": "00055048.png?alt=media&token=af5ab072-0dd7-4fd3-8456-632e24f45b09",
+  "price": 100000000,
+  "rare": true
+}, {
+  "id": "jerUBIxFNl9iX6qsG3QH",
+  "name": "[Guild] Ocean Stalker's Skin",
+  "picture": "00009981.png?alt=media&token=20acec10-def3-40ce-9c8b-35196763d667",
+  "price": 42800,
+  "rare": false
+}, {
+  "id": "kMxQkxMnREFmDZEgvQZm",
+  "name": "[Guild] Sea Monster's Neidan",
+  "picture": "00055052.png?alt=media&token=80332721-3d95-4c31-ae26-f01bb1ebfdb2",
+  "price": 100000,
+  "rare": false
+}, {
+  "id": "sZA9J4OmyB2Fy27uhYzf",
+  "name": "[Guild] Black Rust Jawbone",
+  "picture": "00009979.png?alt=media&token=f1073772-79a0-4fcb-8ea1-0e42a2283243",
+  "price": 52400,
+  "rare": false
+}, {
+  "id": "vHlmwdoczbX1tVVrHEpE",
+  "name": "[Guild] Nineshark's Fin",
+  "peice": 100000000,
+  "picture": "00055050.png?alt=media&token=5a344bc5-f8bf-4a1a-b733-3218049f52c1",
+  "rare": true
+}, {
+  "id": "wze7TXiBmLqGRb7KhQwp",
+  "name": "[Guild] Black Rust Tongue",
+  "picture": "00055049.png?alt=media&token=24ac4be7-23c2-4a49-94ad-571719d7c10d",
+  "price": 100000000,
+  "rare": true
+}, {
+  "id": "yHgDxkKp5lu1uJ0qhl8M",
+  "name": "[Guild] Ocean Stalker Whisker",
+  "picture": "00055051.png?alt=media&token=98b47e6f-a2ce-406e-9c2e-b9b23459f9b5",
+  "price": 100000000,
+  "rare": true
+}]
