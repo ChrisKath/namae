@@ -1,0 +1,122 @@
+/**
+ =========================================================
+
+ * This website is produced by [unknown].
+ * e-mail: null
+ * website: null
+
+ =========================================================
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+**/
+
+// Core Basefont
+@import "../fonts/ionicons/core.css";
+
+// Core Styles
+@import (less) "custom";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+label {
+  width: inherit;
+  user-select: none;
+}
+
+input {
+  outline: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: 0 0 0 transparent;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  padding: 0;
+  border: solid 0 transparent;
+  box-shadow: 0 0 0 transparent;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active {
+    color: @link-active-color;
+  }
+}
+
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  ::selection {
+    color: hsl(210, 10%, 10%);
+    background-color: hsl(210, 100%, 91%);
+  }
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: @font-family;
+  width: 100%;
+  height: 100%;
+  color: @text-color;
+  background-color: @base-color;
+}

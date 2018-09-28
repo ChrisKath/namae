@@ -1,0 +1,37 @@
+// Prefix
+// @css-prefix             : ivu-;
+// @css-prefix-iconfont    : ivu-icon;
+
+// Color
+@primary-color          : #2D8CF0;
+@info-color             : #2DB7F5;
+@success-color          : #19BE6B;
+@warning-color          : #FF9900;
+@error-color            : #FF4D4D;
+@link-color             : #2D8CF0;
+@link-hover-color       : tint(@link-color, 20%);
+@link-active-color      : shade(@link-color, 5%);
+@selected-color         : fade(@primary-color, 90%);
+@subsidiary-color       : #80848F;
+@rate-star-color        : #F5A623;
+
+// Base
+@font-family            : "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+@code-family            : Consolas, Menlo, Courier, monospace;
+@title-color            : #1C2438;
+@base-color             : #FFFFFF;
+@text-color             : #495060;
+@font-size-base         : 14px;
+@font-size-small        : 12px;
+@line-height-base       : 1.5;
+@line-height-computed   : floor((@font-size-base * @line-height-base));
+@border-radius-base     : 2px;
+@border-radius-small    : 1px;
+@border-radius-strong   : 8px;
+@cursor-disabled        : not-allowed;
+
+// Breakpoints
+@mobile:      ~"only screen and (max-width: 529px)";
+@tablet:      ~"only screen and (min-width: 530px) and (max-width: 949px)";
+@desktop:     ~"only screen and (min-width: 950px) and (max-width: 1128px)";
+@desktop-xl:  ~"only screen and (min-width: 1129px)";

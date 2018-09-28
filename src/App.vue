@@ -1,28 +1,41 @@
 <template lang="html">
   <div id="app">
-    ******
+
+    <Icon
+      v-for="item in ITEMS"
+      :key="item.id"
+      :src="`images/${item.picture}`"
+      :rare="item.rare"
+    />
+
   </div>
 </template>
 
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import json from '@/store/seaItems.json'
+import Icon from '@/components/Icon.vue'
 
-@Component
-export default class App extends Vue {
-  private store = json
+@Component({
+  components: {
+    Icon
+  }
+})
+export default class Application extends Vue {
+
+  get ITEMS () {
+    const state = this.$store.state
+    return state['SEA.ITEMS']
+  }
+
 }
 </script>
 
 
 <style lang="less">
-#app {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+  #app {
+    padding: 20px;
+  }
+
 </style>
