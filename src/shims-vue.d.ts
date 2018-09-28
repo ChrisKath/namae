@@ -5,3 +5,4 @@ declare module '*.vue' {
 
 declare module 'moment'
 declare module 'numeral'
+declare module 'vue-countup-v2'
