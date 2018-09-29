@@ -1,19 +1,39 @@
 <template lang="html">
   <div id="app">
 
-    <!-- <Icon
-      v-for="item in ITEMS"
-      :key="item.id"
-      :src="`images/${item.picture}`"
-      :rare="item.rare"
-    /> -->
+    <div id="nav">
+      <input type="text" class="name" value="Namaé"/>
 
-
-    <div id="demo">
-      <input type="number" v-model="demo" />
-
-      <Counted :value="demo"/>
+      <div class="sum">
+        <img :src="require('@/assets/images/coin.png')"/>
+        <Counte :value="summary"/>
+      </div>
     </div>
+
+
+    <div id="table">
+
+      <div class="thead">
+        <span>#</span>
+        <span v-for="day in daysOfWeek">
+          <i class="day">{{ MOMENT(day).format('ddd') }}</i>
+          {{ MOMENT(day).format('ll') }}
+        </span>
+      </div>
+
+      <div class="tbody" v-for="obj in store">
+        <div>******</div>
+        <div v-for="day in daysOfWeek"></div>
+      </div>
+
+    </div>
+
+    <!-- <Icon
+      v-for="obj in store"
+      :key="obj.id"
+      :src="`images/${obj.picture}`"
+      :rare="obj.rare"
+    /> -->
 
   </div>
 </template>
@@ -21,47 +41,31 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Counted from '@/components/Counture.vue'
+import Counte from '@/components/Counture.vue'
 import Icon from '@/components/Icon.vue'
 
 @Component({
   components: {
     Icon,
-    Counted
+    Counte
   }
 })
 export default class Application extends Vue {
+  private summary = 971720
 
-  private demo = 0
-
-  get ITEMS () {
+  get store () {
     const state = this.$store.state
     return state['SEA.ITEMS']
   }
 
+  get daysOfWeek () {
+    const moment = require('moment')
+    const day = new Array()
+
+    for (let i = 0; i < 7; i++)
+      day.push(+moment().day(i))
+
+    return day
+  }
 }
 </script>
-
-
-<style lang="less">
-
-  #app {
-    padding: 20px;
-  }
-
-  #demo {
-    input {
-      margin-bottom: 15px;
-      padding: 10px 15px;
-      border-radius: 2px;
-      border: solid 1px #EBEDEF
-    }
-
-    span {
-      color: #2D8CF0;
-      font-size: 18px;
-      font-weight: 700;
-    }
-  }
-
-</style>

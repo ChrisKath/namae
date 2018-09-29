@@ -19,8 +19,10 @@ import numeral from 'numeral'
 })
 export default class Counture extends Vue {
 
+  @Prop([Number, String]) value!: any
+
   private startVal = 0
-  private endVal = 0
+  private endVal = this.value
   private options = {
     useEasing: true,
     useGrouping: true,
@@ -30,16 +32,10 @@ export default class Counture extends Vue {
     suffix: ''
   }
 
-  Int (val: any) {
-    return Number(numeral(val).format('0.0'))
-  }
-
-  @Prop([Number, String]) value!: any
-
   @Watch('value')
     onValue (newValue: number, oldValue: number) {
-      this.startVal = this.Int(oldValue)
-      this.endVal = this.Int(newValue)
+      this.startVal = Number(numeral(oldValue).format('0.0'))
+      this.endVal = Number(numeral(newValue).format('0.0'))
     }
 }
 </script>

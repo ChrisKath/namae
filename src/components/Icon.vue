@@ -32,7 +32,7 @@ export default class Icon extends Vue {
     const path = require(`@/assets/${this.src}`)
     return {
       backgroundImage: `url(${path})`,
-      backgroundSize: `${this.size || 40}px`
+      backgroundSize: `${this.size || 42}px`
     }
   }
 }

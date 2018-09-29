@@ -2,6 +2,9 @@ module.exports = {
   pluginOptions: {
     moment: {
       locales: ['en']
+    },
+    webpackBundleAnalyzer: {
+      openAnalyzer: false
     }
   },
 
