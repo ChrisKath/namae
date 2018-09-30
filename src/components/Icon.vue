@@ -1,6 +1,7 @@
 <template lang="html">
-  <div id="n-icon" :class="borderColor">
+  <div id="n-icon">
 
+    <div class="bob" :class="borderColor"></div>
     <div class="img" :style="bgImage"></div>
 
   </div>
@@ -12,17 +13,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
 export default class Icon extends Vue {
-  constructor() {
-    super()
-
-    console.info('🔌 [Icon] componentDidMount...')
-  }
-
-
   @Prop(String) src!: string
   @Prop(Number) size!: number
   @Prop({ default: false }) rare!: boolean
-
 
   get borderColor () {
     return this.rare ? 'gold' : 'blue'
@@ -32,7 +25,7 @@ export default class Icon extends Vue {
     const path = require(`@/assets/${this.src}`)
     return {
       backgroundImage: `url(${path})`,
-      backgroundSize: `${this.size || 42}px`
+      backgroundSize: `${this.size || 32}px`
     }
   }
 }
@@ -40,33 +33,40 @@ export default class Icon extends Vue {
 
 
 <style lang="less">
+#n-icon {
+  display: inline-block;
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 100%;
+  background-color: #0B0D0E;
+  border: solid 3px #283747;
 
-  #n-icon {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 6px;
-    background-color: #1A1A1A;
-    border: solid 2px transparent;
-    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.34);
-
-    .img {
-      display: block;
-      height: 100%;
-      background-color: transparent;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
+  .bob {
+    position: absolute;
+    z-index: 1;
+    top: -1px;
+    right: -1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
 
     &.gold {
-      border-color: #E6BF00;
+      background-image: linear-gradient(120deg, #F6D365 0%, #FDA085 100%);
     }
 
     &.blue {
-      border-color: #80BAFB;
+      background-image: linear-gradient(120deg, #00F2FE 0%, #4FACFE 100%);
     }
   }
 
+  .img {
+    display: block;
+    height: 100%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
 </style>
 

@@ -2,7 +2,7 @@
   <div id="app">
 
     <div id="nav">
-      <input type="text" class="name" value="Namaé"/>
+      <input type="text" class="name" value="NAMAEE - คุกกี้จัง"/>
 
       <div class="sum">
         <img :src="require('@/assets/images/coin.png')"/>
@@ -14,33 +14,49 @@
     <div id="table">
 
       <div class="thead">
-        <span>#</span>
-        <span v-for="day in daysOfWeek">
-          <i class="day">{{ MOMENT(day).format('ddd') }}</i>
-          {{ MOMENT(day).format('ll') }}
-        </span>
+        <span class="lf">item info</span>
+        <span>quantity</span>
+        <span class="rg">amount</span>
       </div>
 
-      <div class="tbody" v-for="obj in store">
-        <div>******</div>
-        <div v-for="day in daysOfWeek"></div>
+      <div class="tbody" v-for="obj in store" v-if="obj.on">
+
+        <div class="td-col">
+          <div class="n-temp">
+            <Icon
+              :key="obj.id"
+              :rare="obj.rare"
+              :src="`images/${obj.picture}`"
+            />
+            <span class="temp">
+              <h2>{{ obj.name }}</h2>
+              <h3>{{ NUMERAL(obj.price).format('0,0') }}</h3>
+            </span>
+          </div>
+        </div>
+
+        <div class="td-col">
+          <input
+            type="text"
+            v-model="obj.qty"
+            @keyup="obj.qty = Number(obj.qty)"
+            @focus="$event.target.select()"
+          />
+        </div>
+
+        <div class="td-col">
+          <Counte class="amo rg" :value="obj.price * obj.qty"/>
+        </div>
       </div>
 
     </div>
-
-    <!-- <Icon
-      v-for="obj in store"
-      :key="obj.id"
-      :src="`images/${obj.picture}`"
-      :rare="obj.rare"
-    /> -->
 
   </div>
 </template>
 
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Watch, Vue } from 'vue-property-decorator'
 import Counte from '@/components/Counture.vue'
 import Icon from '@/components/Icon.vue'
 
@@ -51,11 +67,58 @@ import Icon from '@/components/Icon.vue'
   }
 })
 export default class Application extends Vue {
-  private summary = 971720
+  private store = new Array
 
-  get store () {
-    const state = this.$store.state
-    return state['SEA.ITEMS']
+  constructor () {
+    super()
+
+    let state = JSON.parse(JSON.stringify(this.$store.state['SEA.ITEMS']))
+    state = Object.keys(state).map(i => {
+      state[i].qty = 0
+      state[i].on = true
+
+      return state[i]
+    })
+
+    this.store = state.sort((a: any, b: any) => {
+      a = a['price']
+      b = b['price']
+      return (a === b ? 0 : a > b ? 1 : -1)
+    })
+  }
+
+  mounted () {
+    const $t = this
+    window.addEventListener('keyup', event => {
+      if (event.key === 'F9' || event.keyCode === 120) {
+        
+        $t.store.forEach((obj: any) => {
+          if (!obj.qty) obj.on = false
+        })
+
+        $t.store = $t.store.sort((a: any, b: any) => {
+          a = a['qty']
+          b = b['qty']
+          return (a === b ? 0 : a > b ? -1 : 1)
+        })
+
+      }
+
+
+      if (event.key === 'Home' || event.keyCode === 36) {
+        
+        $t.store.forEach((obj: any) => {
+          if (!obj.qty) obj.on = true
+        })
+
+        $t.store = $t.store.sort((a: any, b: any) => {
+          a = a['price']
+          b = b['price']
+          return (a === b ? 0 : a > b ? 1 : -1)
+        })
+
+      }
+    }, false)
   }
 
   get daysOfWeek () {
@@ -66,6 +129,17 @@ export default class Application extends Vue {
       day.push(+moment().day(i))
 
     return day
+  }
+
+  get summary () {
+    let result = 0
+    this.store.forEach((obj: any) => {
+      result += (
+        obj.price * Number(obj.qty)
+      )
+    })
+
+    return result
   }
 }
 </script>
