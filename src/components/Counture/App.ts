@@ -1,13 +1,3 @@
-<template lang="html">
-  <Countup
-    :startVal="startVal"
-    :endVal="endVal"
-    :options="options"
-  />
-</template>
-
-
-<script lang="ts">
 import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 import Countup from 'vue-countup-v2'
 import numeral from 'numeral'
@@ -38,5 +28,3 @@ export default class Counture extends Vue {
       this.endVal = Number(numeral(newValue).format('0.0'))
     }
 }
-</script>
-

@@ -57,8 +57,8 @@
 
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator'
-import Counte from '@/components/Counture.vue'
-import Icon from '@/components/Icon.vue'
+import Counte from '@/components/Counture/Index.vue'
+import Icon from '@/components/Icon/Index.vue'
 
 @Component({
   components: {
@@ -67,7 +67,9 @@ import Icon from '@/components/Icon.vue'
   }
 })
 export default class Application extends Vue {
+  // initial data
   private store = new Array
+  private msg = 'null'
 
   constructor () {
     super()
@@ -85,8 +87,11 @@ export default class Application extends Vue {
       b = b['price']
       return (a === b ? 0 : a > b ? 1 : -1)
     })
+
+    this.orderBy('price')
   }
 
+  // lifecycle hook
   mounted () {
     const $t = this
     window.addEventListener('keyup', event => {
@@ -121,6 +126,7 @@ export default class Application extends Vue {
     }, false)
   }
 
+  // computed
   get daysOfWeek () {
     const moment = require('moment')
     const day = new Array()
@@ -131,6 +137,7 @@ export default class Application extends Vue {
     return day
   }
 
+  // computed
   get summary () {
     let result = 0
     this.store.forEach((obj: any) => {
@@ -140,6 +147,11 @@ export default class Application extends Vue {
     })
 
     return result
+  }
+ 
+  // methods
+  orderBy (field: any) {
+    console.log(this.msg)
   }
 }
 </script>
